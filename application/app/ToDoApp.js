@@ -1,6 +1,9 @@
 "use client"
 import { useState } from 'react'
 import Task from './Task'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
 
 export default function ToDoApp() {
     
@@ -8,14 +11,18 @@ export default function ToDoApp() {
     const tasksTree = tasks.map(v => <Task key={v.task + v.isCompleted} task={v} />)
 
     return (
-        <ul>
-            <form>
-                <input />
-                <button type="submit">Add</button>
-            </form>
-            
+        <Container>
+            <Form>
+                <Form.Group controlId="task_to_perform">
+                    <Form.Label>Task:</Form.Label>
+                    <Form.Control placeholder="Enter the task.."/>
+                </Form.Group>
+                <Button variant='primary' type="submit">Add</Button>
+            </Form>
+            <Container>
             {tasksTree}
-        </ul>
+            </Container>
+        </Container>
     )
 }
 
