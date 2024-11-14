@@ -32,6 +32,7 @@ export default function ToDoApp() {
         const id = generateStr(idLen);
         const newTasks = [...tasks, { id: id, text: taskTextInput, isCompleted: false }]
         setTasks(newTasks);
+        setTaskTextInput('');
     }
 
 
